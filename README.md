@@ -8,21 +8,27 @@ These instructions will guide you from downloading a copy of the project to runn
 
 ### Prerequisites
 
-1. Download and Install Python 2.7 (also works with Python 3.x)
-    * Select the appropriate installer for your machine. see [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)
- 
-2. Install Python requests module
+* Python 2.7.*
+* GIT
+
+### Setup
+
+Clone the repository
  ```
+git clone https://github.com/rsuela/apitest-python.git
+ ```
+
+Run the following commands to install the necessary Python modules to run the script.
+ ```
+ # In-case pip module is not installed
  easy_install pip
- pip install requests
+ 
+ cd apitest-python
+ pip install -r requirements.txt
  ```
  
 Thats it!
 
-## Download the zip file of the repository
-1. On your browser, go to https://github.com/rsuela/apitest-python
-2. Click on the "Clone or Download" button then click "Download ZIP"
-3. Extract the zip to any location. (i.e C:/ or /tmp)
 
 ## Running the tests
 
@@ -55,29 +61,6 @@ OK
 Unable to connect to https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false
 ```
 Answer: Make sure that the machine has an internet connection and able to access the endpoint.
-
-2. After installing Python, I came across this error when I try to install requests.
-```
-[root@localmachine apitest-python]# easy_install pip
-bash: easy_install: command not found
-```
-
-```
-[root@localmachine apitest-python]# pip install requests
-bash: pip: command not found
-```
-
-Answer: Your Python installation is missing the pip or easy_install module. Run the following commands to install PIP.
-
-```
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-```
-
-Then run the following:
-
-```
-python get-pip.py
-```
 
 
 ## Authors
