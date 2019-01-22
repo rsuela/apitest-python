@@ -46,7 +46,10 @@ class CategoriesTestSuite(unittest.TestCase):
             if promotion["Name"] == "Gallery":
                 keyword = re.findall("^2x larger image",
                                      promotion["Description"], re.MULTILINE)
-                self.assertEqual(keyword[0], "2x larger image")
+                search = ""
+                if keyword:
+                    search = keyword[0]
+                self.assertEqual(search, "2x larger image")
 
 
 if __name__ == "__main__":
