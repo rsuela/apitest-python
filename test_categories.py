@@ -5,6 +5,7 @@
 __author__ = "Rey Suela"
 __email__ = "rsuela@gmail.com"
 
+from pyunitreport import HTMLTestRunner
 import requests
 import unittest
 import json
@@ -29,28 +30,37 @@ class CategoriesTestSuite(unittest.TestCase):
             sys.exit(0)
 
     def test_name(self):
-        """ Check the result of the json output
-            if name value is Carbon credits"""
-        self.assertEqual(self.json_result["Name"], "Carbon credits")
+        """ Test `Name` property should contain the value `Carbon credits`"""
+        try:
+            self.assertEqual(self.json_result["Name"], "Carbon credits")
+        except KeyError:
+            raise AssertionError("ERROR! CanRelist property not found")
 
     def test_canrelist(self):
-        """ Check the result of the json output
-            if CanRelist value is True"""
-        self.assertTrue(self.json_result["CanRelist"])
+        """ Test CanRelist property should contain boolean True"""
+        try:
+            self.assertTrue(self.json_result["CanRelist"])
+        except KeyError:
+            raise AssertionError("ERROR! CanRelist property not found")
 
     def test_gallery(self):
-        """ Parse through the promotions and check if there is an
-            element named 'Gallery' and Description contains
-            '2x larger image'"""
+        """ Test if `Gallery` Name is present in Promotions list and 
+            Description should contain the value '2x larger image'"""
+        isFound = False
         for promotion in self.json_result["Promotions"]:
             if promotion["Name"] == "Gallery":
+                isFound = True
                 keyword = re.findall("^2x larger image",
                                      promotion["Description"], re.MULTILINE)
                 search = ""
                 if keyword:
                     search = keyword[0]
                 self.assertEqual(search, "2x larger image")
+        
+        # if gallery is not found in the list this should catch it
+        self.assertTrue(isFound, msg="Gallery Object not found")
 
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(testRunner=HTMLTestRunner(output=''))
+    #unittest.main()
