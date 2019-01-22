@@ -45,10 +45,9 @@ To execute the test, Run the following command:
  ```
  
  After running the command, the result should look something like below. This means that all the tests has passed.
-![Console](https://s3.amazonaws.com/resources.reysuela.com/console.png "console")
+![Console command](https://s3.amazonaws.com/resources.reysuela.com/consolecmd.png "console")
 
 A reports folder will be generated and will contain an HTML file containing the test results.
-
 ![html results](https://s3.amazonaws.com/resources.reysuela.com/htmlresult.png "HTML results")
 
 
