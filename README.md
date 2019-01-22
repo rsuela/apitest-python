@@ -8,8 +8,13 @@ These instructions will guide you from downloading a copy of the project to runn
 
 ### Prerequisites
 
-* Python 2.7.*
+* Python 2.7.* (or Python 3.x)
 * GIT
+
+### OS Tested
+* Mac OS X v10
+* Windows 10
+* Amazon Linux 2 AMI 
 
 ### Setup
 
@@ -20,7 +25,7 @@ git clone https://github.com/rsuela/apitest-python.git
 
 Run the following commands to install the necessary Python modules to run the script.
  ```
- # In-case pip module is not installed
+ # In case pip module is not installed
  easy_install pip
  
  cd apitest-python
